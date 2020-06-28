@@ -1,0 +1,39 @@
+.comic {
+  color: white;
+  .title {
+    font-size: 3rem;
+    font-weight: bolder;
+    color: red;
+  }
+  img {
+    margin: 0 1rem 1rem 0;
+    display: inline-block;
+    max-width: 60%;
+  }
+  .main-info {
+    margin: 1rem 0;
+  }
+  .left-info {
+    display: inline-block;
+    width: 40%;
+    vertical-align: top;
+    font-size: larger;
+  }
+  .creators {
+    padding: 1rem 0;
+    color: rgba(128, 125, 125, 0.8);
+  }
+  .name-span span {
+    font-weight: bolder;
+    color: rgba(128, 125, 125, 0.8);
+  }
+  .characters {
+    li {
+      list-style-type: none;
+    }
+
+    h5 {
+      font-weight: bolder;
+    }
+  }
+}

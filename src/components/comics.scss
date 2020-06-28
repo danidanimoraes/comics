@@ -1,0 +1,72 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(19%, 1fr));
+    grid-gap: 1rem;
+
+    > div.grid-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: rgba(198, 0, 0, 0.42);
+        padding: 1.5rem;
+        border-radius: 1.5rem;
+        color: white;
+        word-wrap: anywhere;
+
+        .title {
+            font-weight: 700;
+            font-size: large;
+        }
+
+        .creators {
+            padding: 1rem 0;
+            font-size: smaller;
+            color: rgba(128, 125, 125, 0.8);
+        }
+        img {
+            &:hover {
+                transform: translateY(-6px);
+                transition: all 0.17s ease;
+            }
+            box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.4);
+        }
+
+        .details {
+            text-align: right;
+            a {
+                color: white;
+                font-size: large;
+            }
+        }
+    }
+}
+
+body {
+    margin: 2rem;
+    font-style: "Roboto Bold";
+    background: rgba(38, 38, 38, 1);
+
+    .text-center {
+        text-align: center;
+    }
+
+    .img-center {
+        display: block;
+        margin: 20px auto;
+    }
+
+    .search {
+        input {
+            width: 270px;
+            vertical-align: middle;
+        }
+        color: white;
+        padding: 1rem 0;
+    }
+    .hide-el {
+        display: none;
+    }
+    .show-el {
+        display: inline-block;
+    }
+}
