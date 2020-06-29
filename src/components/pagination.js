@@ -15,7 +15,7 @@ const Pagination = ({ itemsPerPage, totalItems, paginate, currentPage }) => {
                     <td>MARV</td>
                     {pageNumbers.map((number) => (
                         <td key={number} className="">
-                            <div className={currentPage == number ? 'selected' : ''}><a onClick={() => paginate(number)} href="#" className="">E</a></div>
+                            <div className={currentPage === number ? 'selected' : ''}><a onClick={() => paginate(number)} href="/#" className="">E</a></div>
                             <div className="number">{number}</div>
                         </td>
                     ))}

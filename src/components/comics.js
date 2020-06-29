@@ -23,7 +23,7 @@ const Comics = (props) => {
 
     return (
         <div>
-            <div className="search">
+            <div data-testid="search" className="search">
                 <button type="button" title="Search comic by character" className="btn btn-danger" onClick={props.toggleClass}>
                     <FontAwesomeIcon icon={faSearch} />
                 </button>
@@ -37,9 +37,9 @@ const Comics = (props) => {
                 />
             </div>
 
-            <div className="grid">
+            <div className="grid" data-testid="grid">
                 {currentComics.map((comic, i) => (
-                    <div className="grid-item">
+                    <div className="grid-item" key={`comic-${i}`}>
                         <div>
                             <img key="{i}" alt={comic.title} src={`${comic.thumbnail.path}/portrait_incredible.${comic.thumbnail.extension}`} className="img-center" title={comic.title} />
                             <div className="title">{comic.title}</div>
@@ -52,10 +52,15 @@ const Comics = (props) => {
                             </div>
                         </div>
 
-                        <div>
+                        <div className="bottom">
+                            <div className="little-marvel">
+                                <a href={comic.urls.length === 0 ? 'http://marvel.com' : 
+                                    comic.urls.find((url) => url.type === 'detail') ? comic.urls.find((url) => url.type === 'detail').url : comic.urls[0].url}
+                                    title="Open details on Marvel Website" target="_blank">M</a>
+                            </div>
                             <div className="details">
                                 <Router>
-                                    <a href={`/comic/${comic.id}`} target="_blank" rel="noopener noreferrer" title="Open comic details">
+                                    <a href={`/comic/${comic.id}`} target="_blank" rel="noopener noreferrer" title="Open Comic Details">
                                         <FontAwesomeIcon icon={faPlus} />
                                     </a>
                                 </Router>

@@ -28,12 +28,27 @@
     color: rgba(128, 125, 125, 0.8);
   }
   .characters {
+    padding-top: 1rem;
     li {
       list-style-type: none;
     }
 
     h5 {
       font-weight: bolder;
+    }
+  }
+  .little-marvel {
+    background: red;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    font-weight: bolder;
+    padding: 0 4px;
+    a {
+        color: white;
+        &:hover {
+            text-decoration: none;
+        }
     }
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import md5 from "md5";
 import Comics from "./components/comics";
 import Comic from "./components/comic";
@@ -39,7 +39,7 @@ class App extends Component {
                 </div>
                 <Router>
                     <Switch>
-                        <Route path="/comic/:comicId" component={Comic}>
+                        <Route path="/comic/:comicId">
                             <Comic />
                         </Route>
                         <Route path="/comic">
@@ -58,7 +58,7 @@ class App extends Component {
                         </Route>
                     </Switch>
                 </Router>
-                <div>
+                <div className="footer">
                     Data provided by Marvel. © 2014 Marvel
                 </div>
             </div>
@@ -66,7 +66,6 @@ class App extends Component {
     }
 
     toggleClass = () => {
-        console.log("toggle", this.state.inputHidden);
         this.setState({ inputHidden: !this.state.inputHidden });
     };
 

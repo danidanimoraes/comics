@@ -8,30 +8,30 @@ import {
 } from "react-router-dom";
 
 function Comic() {
-    let { comicId } = useParams();
+     let { comicId } = useParams();
     const [comic, setComic] = useState([]);
 
-    var ts = new Date().getTime();
-    var hash = md5(ts + process.env.REACT_APP_PRIVATE_KEY + process.env.REACT_APP_PUBLIC_KEY);
+    
+    useEffect(() => {          
+        var ts = new Date().getTime();
+        var hash = md5(ts + process.env.REACT_APP_PRIVATE_KEY + process.env.REACT_APP_PUBLIC_KEY);
 
-    async function fetchData() {
-        await fetch(`https://gateway.marvel.com:443/v1/public/comics/${comicId}?apikey=${process.env.REACT_APP_PUBLIC_KEY}&ts=${ts}&hash=${hash}`)
-            .then(response => response.json())
-            .then(json => {
-                setComic(json.data.results[0]);
-            })
-            .catch(err => console.log(err));
-    }
-
-    useEffect(() => {
+        async function fetchData() {
+            await fetch(`https://gateway.marvel.com:443/v1/public/comics/${comicId}?apikey=${process.env.REACT_APP_PUBLIC_KEY}&ts=${ts}&hash=${hash}`)
+                .then(response => response.json())
+                .then(json => {
+                    setComic(json.data.results[0]);
+                })
+                .catch(err => console.log(err));
+        }
         fetchData();
-    }, []);
+    }, [comicId]);
 
     return (
         Object.keys(comic).map((obj, i) => {
-            if (i == 0) {
+            if (i === 0) {
                 return (
-                    <div className="comic">
+                    <div className="comic" key={i}>
                         <div className="title">{comic.title}</div>
                         <div className="creators">Creators: {comic.creators.items.length === 0 ? 'Not Available' : comic.creators.items.map((creator, i) => {
                             return i === comic.creators.items.length - 1 ? creator.name : creator.name + ', ';
@@ -58,6 +58,11 @@ function Comic() {
                             <div className="left-info">
                                 <div className="description">{comic.description ? comic.description : 'Description not available'}</div>
                             </div>
+                            <div className="little-marvel">
+                                <a href={comic.urls.length === 0 ? 'http://marvel.com' : 
+                                    comic.urls.find((url) => url.type === 'detail') ? comic.urls.find((url) => url.type === 'detail').url : comic.urls[0].url}
+                                    title="Open details on Marvel Website" target="_blank">M</a>
+                            </div>
                             <div className="characters">
                                 <h5>Characters</h5>
                                 {comic.characters.items.length === 0 ? 'Not Available' :
@@ -69,6 +74,7 @@ function Comic() {
                     </div>
                 )
             }
+            return null;
         })
     );
 }

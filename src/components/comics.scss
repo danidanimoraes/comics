@@ -30,13 +30,31 @@
             }
             box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.4);
         }
+        .bottom {
+            display: flex;
+            justify-content: space-between;
 
-        .details {
-            text-align: right;
-            a {
-                color: white;
-                font-size: large;
+            .details {
+                text-align: right;
+                a {
+                    color: white;
+                    font-size: large;
+                }
             }
+            .little-marvel {
+                background: red;
+                width: 25px;
+                height: 25px;
+                text-align: center;
+                font-weight: bolder;
+                padding: 0 4px;
+                a {
+                    color: white;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+            }   
         }
     }
 }
