@@ -22,3 +22,23 @@ Don't change these names.
 Then, run
 
 <code>npm start</code>
+
+# Images
+
+The landing page containing all comics and a filter button. 
+Each comic has a button that opens the link to this comic page on marvel domain.
+
+![Comics landing page](comics.PNG)
+
+The pagination is made in a familiar way.
+
+![Pagination](pagination.PNG)
+
+Filtering a comic by character
+
+![Filter](filter.PNG)
+
+Opening a specific comic. It show some details and it has also a link to this comic on marvel domain.
+
+![Comic 1](comicDetails1.PNG)
+![Comic 2](comicDetails2.PNG)
