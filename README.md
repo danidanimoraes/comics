@@ -23,6 +23,9 @@ Then, run
 
 <code>npm start</code>
 
+# Gh-pages
+It is served here: https://danidanimoraes.github.io/comics/
+
 # Images
 
 The landing page containing all comics and a filter button. 
